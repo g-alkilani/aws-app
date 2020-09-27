@@ -1,10 +1,11 @@
-language: generic
+language: java
 sudo: required
 
 services:
   - docker
 
 before_install:
+  - mvn package
   - docker build -t galkilani/aws-app .
 
 deploy:
