@@ -1,0 +1,20 @@
+language: generic
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t galkilani/aws-app .
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "aws-app"
+  env: "awsapp-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-814158934529"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
