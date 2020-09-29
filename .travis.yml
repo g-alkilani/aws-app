@@ -1,6 +1,10 @@
 language: java
 sudo: required
 
+cache:
+  directories:
+    - $HOME/.m2
+
 jdk:
   - oraclejdk13
 
@@ -17,7 +21,7 @@ deploy:
   app: "aws-app"
   env: "awsapp-env"
   bucket_name: "elasticbeanstalk-eu-central-1-814158934529"
-  bucket_path: "docker"
+  bucket_path: "aws-app"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
