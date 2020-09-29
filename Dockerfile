@@ -1,6 +1,7 @@
-ARG DOCKER_HUB_PROXY
-FROM ${DOCKER_HUB_PROXY}openjdk:13-alpine
+FROM openjdk:13
 WORKDIR /app
 COPY ./target/myAwsProject.jar ./
-EXPOSE 8080
 CMD ["java", "-jar", "myAwsProject.jar"]
+
+FROM nginx
+EXPOSE 80
