@@ -1,7 +1,6 @@
-FROM openjdk:13
+FROM openjdk:11
 WORKDIR /app
 COPY ./target/myAwsProject.jar ./
 CMD ["java", "-jar", "myAwsProject.jar"]
 
-FROM nginx
-EXPOSE 80
+EXPOSE 8080
